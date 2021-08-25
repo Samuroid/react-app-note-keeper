@@ -3,33 +3,38 @@ import Header from "./Header";
 import Footer from "./Footer";
 import AddNoteArea from "./AddNoteArea";
 import Note from "./Note";
-import { v4 as uuidv4 } from 'uuid';
-
 
 function App() {
     const [notes, setNotes] = useState([]);
 
     function addNote(noteData){
-        const id = uuidv4();
-
+        const id = notes.length + 100; // simple id setup
         noteData.push(id);
-        
-        // const buildNote = () => {
-        //     return [...noteData, id];
-        // }
-
-        console.log(noteData);
         setNotes((prevNotes) => {
             return [...prevNotes, noteData]
         });
-        console.log(notes);
+    }
+
+    function deleteNote(id){
+        setNotes(prevNotes => {
+            return prevNotes.filter((note, index) => {
+                return ( index + 100 ) !== id;
+            })
+        } )
     }
 
     return (
         <div>
             <Header useState={useState} />
             <AddNoteArea onAdd={addNote} />
-            {notes.map( (aNote) => <Note key={aNote[2]} title={aNote[0]} content={aNote[1]} /> )}
+            {notes.map( (aNote, index ) => 
+            <Note 
+            key={index} 
+            id={index + 100} 
+            title={aNote[0]} 
+            content={aNote[1]} 
+            onDelete={deleteNote}
+            /> )}
             
             <Footer />
         </div>

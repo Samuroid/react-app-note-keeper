@@ -18,8 +18,8 @@ function AddNoteArea(props){
     
     return(
         <form onSubmit={e => e.preventDefault()}>
-        <input name="title" placeholder="Title" onChange={handleTitleChange} />
-        <textarea name="content" placeholder="Take a note..." rows="3" onChange={handleNoteChange}/>
+        <input name="title" placeholder="Title" onChange={handleTitleChange} value={inputTitleText}/>
+        <textarea name="content" placeholder="Take a note..." rows="3" onChange={handleNoteChange} value={inputNoteText}/>
         <button
             onClick={() => {
             props.onAdd(sendNoteData());
