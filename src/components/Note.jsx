@@ -5,6 +5,7 @@ function Note(aNote) {
         <div className="note">
             <h1>{aNote.title}</h1>
             <p>{aNote.content}</p>
+            <button>DELETE</button>
         </div>
     )
 }

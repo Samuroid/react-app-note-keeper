@@ -29,6 +29,10 @@ header h1 {
   font-weight: 200;
 }
 
+header .clock{
+  color: lightslategrey;
+}
+
 footer {
   position: absolute;
   text-align: center;
@@ -40,6 +44,8 @@ footer {
 footer p {
   color: #ccc;
 }
+
+/* Note Styles */
 .note {
   background: #fff;
   border-radius: 7px;
@@ -60,10 +66,19 @@ footer p {
   word-wrap: break-word;
 }
 
-.clock{
-  color: lightslategrey;
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: #f5ba13;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
 }
 
+/* Add Note Form Styles */
 form {
   position: relative;
   width: 480px;
