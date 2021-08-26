@@ -32,6 +32,22 @@ function AddNoteArea(props){
             // document.getElementById('inputTitle').focus = true; // focus the input title field elemnt
         }
     }
+
+    function handleColorClick(e){
+        e.persist();
+        const id = e.target.id;
+        console.log(id);
+        if(id === "action"){
+            // we are grey colored
+            console.log("grey")
+        }else if(id === "primary"){
+            console.log("primary")
+        }else if(id === "secondary"){
+            console.log("secondary")
+        }else{
+
+        }
+    }
     
     return(
         <form className="create-note" onSubmit={e => e.preventDefault()}>
@@ -51,6 +67,20 @@ function AddNoteArea(props){
             value={inputNoteText}
             onClick={handleTextareaClick}
         />
+        <div className="accessories">
+            <a id="primary" className="primary" onClick={(event) => {
+                handleColorClick(event)
+            }}>
+            </a>
+            <a id="secondary" className="secondary" onClick={(event) => {
+                handleColorClick(event)
+            }}>
+            </a>
+            <a id="third" className="third" onClick={(event) => {
+                handleColorClick(event)
+            }}>
+            </a>
+        </div>
         <Fab
             style={invisibleStyle}
             onClick={() => {

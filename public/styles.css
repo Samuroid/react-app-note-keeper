@@ -110,6 +110,23 @@ form.create-note textarea {
   font-family: inherit;
   resize: none;
 }
+form.create-note .accessories{
+  display: flex;
+}
+form.create-note .accessories a{
+  width: 13px;
+  height: 13px;
+  margin-left: 5%;
+}
+form.create-note .accessories a.primary{
+  background-color:orangered
+}
+form.create-note .accessories a.secondary{
+  background-color: aqua;
+}
+form.create-note .accessories a.third{
+  background-color: mediumseagreen;
+}
 form.create-note button {
   position: absolute;
   right: 18px;
