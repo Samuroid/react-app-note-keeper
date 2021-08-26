@@ -25,7 +25,7 @@ function App() {
 
     return (
         <div>
-            <Header useState={useState} />
+            <Header useState={useState} count={notes.length}/>
             <AddNoteArea onAdd={addNote} />
             {notes.map( (aNote, index ) => 
             <Note 
