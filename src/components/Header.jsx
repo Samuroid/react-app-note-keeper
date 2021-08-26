@@ -4,10 +4,6 @@ import NoteIcon from '@material-ui/icons/Note';
 
 function Heading( props ) {
     const [count, addNote] = props.useState(0);
-
-    function increase() {
-        addNote( count + 1 );
-    }
     
     return(
         <header>

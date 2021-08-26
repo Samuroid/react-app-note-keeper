@@ -10,6 +10,7 @@ function App() {
     function addNote(noteData){
         const id = notes.length + 100; // simple id setup
         noteData.push(id);
+        noteData.push( new Date().toLocaleTimeString() );
         setNotes((prevNotes) => {
             return [...prevNotes, noteData]
         });
@@ -32,7 +33,8 @@ function App() {
             key={index} 
             id={index + 100} 
             title={aNote[0]} 
-            content={aNote[1]} 
+            content={aNote[1]}
+            dateAdded={aNote[3]}
             onDelete={deleteNote}
             /> )}
             

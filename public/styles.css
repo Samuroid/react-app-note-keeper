@@ -29,8 +29,8 @@ header h1 {
   font-weight: 200;
 }
 
-header .clock{
-  color: lightslategrey;
+header p{
+  color: orangered;
 }
 
 footer {
@@ -55,6 +55,15 @@ footer p {
   margin: 16px;
   float: left;
 }
+.noteContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.noteContainer .footer{
+  display: flex;
+  align-items: flex-end;
+}
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
@@ -66,10 +75,12 @@ footer p {
   word-wrap: break-word;
 }
 
+.note p.dateAdded{
+  font-size: 0.8em;
+}
+
 .note button {
-  position: relative;
-  float: right;
-  margin-right: 10px;
+  margin-left: auto;
   color: #f5ba13;
   background-color: transparent;
   border: none;

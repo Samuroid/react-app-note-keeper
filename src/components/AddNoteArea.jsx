@@ -29,12 +29,14 @@ function AddNoteArea(props){
             document.getElementsByClassName('MuiButtonBase-root MuiFab-root')[0].style.visibility = 'visible';
             setIsHidden(false); // show the title input
             e.target.rows = 3; // expand text input to 3 lines
+            // document.getElementById('inputTitle').focus = true; // focus the input title field elemnt
         }
     }
     
     return(
         <form className="create-note" onSubmit={e => e.preventDefault()}>
         <input 
+            id="inputTitle"
             name="title" 
             placeholder="Title" 
             onChange={handleTitleChange} 
