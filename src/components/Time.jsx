@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Time(){
+    const [time, setTime] = useState(new Date().toLocaleTimeString());
 
-    const nowTime = new Date().toLocaleTimeString();
-    const [time, setTime] = useState(nowTime);
+    useEffect(() => {
+        const time = () =>{
+            const date = new Date();
+            setTime( date.toLocaleTimeString() );
+        }
 
-    function updateTime(){
-        const newTime = new Date().toLocaleTimeString();
-        setTime( newTime );
-    }
+        const timer = setInterval( time, 1000 );
+
+        return () => {
+            clearInterval(timer)
+        };
+    }, []);
+
+    // function updateTime(){
+    //     const newTime = new Date().toLocaleTimeString();
+    //     setTime( newTime );
+    // }
 
     // setInterval(updateTime(), 2000);
 
-    return <p className="clock" onClick={updateTime}>{time}</p>;
+    return <p className="clock">{time}</p>;
 }
 
 export default Time;
