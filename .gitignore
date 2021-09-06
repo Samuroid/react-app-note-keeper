@@ -10,6 +10,7 @@ logs
 
 # Ignore the build directory
 /dist
+/build
 
 # The file containing environment variables 
 .env
@@ -19,3 +20,7 @@ logs
 .vscode/
 *.sw*
 .DS_Store
+*.cache
+.firebaserc
+.gitignore
+.github/

@@ -3,27 +3,30 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
 function AddNoteArea(props){
-    const [inputTitleText, setInputTitleText] = useState("");
-    const [inputNoteText, setInputNoteText] = useState("");
+    const [note, setNote] = useState({
+        id: 0,
+        title: "",
+        content: "",
+        color: "",
+        dateAdded: ""
+    });
     const [isHidden, setIsHidden] = useState(true);
 
-    function handleTitleChange(e){
-        setInputTitleText( e.target.value );
+    function handleChange(event){
+        const { name, value } = event.target; // get the input name and value entered
+        setNote(prevNote => {
+            return { 
+                ...prevNote, // get the current note data
+                [name] : value // populate the newly entered data from input fields
+            };
+        });
     }
 
-    function handleNoteChange(e){
-        setInputNoteText( e.target.value );
-    }
-
-    function sendNoteData(){
-        return([inputTitleText, inputNoteText]);
-    }
-
-    const invisibleStyle = {
+    const invisibleStyle = { // css style to handle visibility state of the add note area
         visibility : 'hidden'
     };
 
-    function handleTextareaClick(e){
+    function handleTextareaClick(e){ // handles showing the rest of the text area UI elements
         if(isHidden){
             //show the button
             document.getElementsByClassName('MuiButtonBase-root MuiFab-root')[0].style.visibility = 'visible';
@@ -33,20 +36,19 @@ function AddNoteArea(props){
         }
     }
 
-    function handleColorClick(e){
+    /*
+        Sets the color state of the note
+    */
+    function handleColorClick(e){ 
         e.persist();
-        const id = e.target.id;
-        console.log(id);
-        if(id === "action"){
-            // we are grey colored
-            console.log("grey")
-        }else if(id === "primary"){
-            console.log("primary")
-        }else if(id === "secondary"){
-            console.log("secondary")
-        }else{
+        const color = e.target.id;
 
-        }
+        setNote(prevNote =>{
+            return {
+                ...prevNote,
+                color : color
+            }
+        })
     }
     
     return(
@@ -55,16 +57,16 @@ function AddNoteArea(props){
             id="inputTitle"
             name="title" 
             placeholder="Title" 
-            onChange={handleTitleChange} 
-            value={inputTitleText}
+            onChange={handleChange} 
+            value={note.title}
             hidden={isHidden}
         />
         <textarea 
             name="content" 
             placeholder="Take a note..." 
             rows="1" 
-            onChange={handleNoteChange} 
-            value={inputNoteText}
+            onChange={handleChange} 
+            value={note.content}
             onClick={handleTextareaClick}
         />
         <div className="accessories">
@@ -84,9 +86,12 @@ function AddNoteArea(props){
         <Fab
             style={invisibleStyle}
             onClick={() => {
-            props.onAdd(sendNoteData());
-            setInputTitleText("");
-            setInputNoteText("");
+            props.onAdd(note);
+            //reset note data after being submitted
+            // note.title = "";
+            // note.content = "";
+            // note.color = "";
+            // note.dateAdded = "";
             }}
         >
             <AddIcon />
