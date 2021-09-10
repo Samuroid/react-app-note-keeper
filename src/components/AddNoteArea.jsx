@@ -3,13 +3,14 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
 function AddNoteArea(props){
-    const [note, setNote] = useState({
+    const blankNote = {
         id: 0,
         title: "",
         content: "",
         color: "",
         dateAdded: ""
-    });
+    };
+    const [note, setNote] = useState( blankNote );
     const [isHidden, setIsHidden] = useState(true);
 
     let noteStyle = {
@@ -91,12 +92,8 @@ function AddNoteArea(props){
         <Fab
             style={invisibleStyle}
             onClick={() => {
-            props.onAdd(note);
-            //reset note data after being submitted
-            // note.title = "";
-            // note.content = "";
-            // note.color = "";
-            // note.dateAdded = "";
+                props.onAdd(note);
+                setNote( blankNote );
             }}
         >
             <AddIcon />
