@@ -30,10 +30,6 @@ header h1 {
   font-weight: 200;
 }
 
-header p{
-  color: orangered;
-}
-
 footer {
   position: absolute;
   text-align: center;
@@ -110,6 +106,7 @@ form.create-note textarea {
   font-size: 1.2em;
   font-family: inherit;
   resize: none;
+  background-color: inherit;
 }
 form.create-note .accessories{
   display: flex;
@@ -123,7 +120,7 @@ form.create-note .accessories a.primary{
   background-color:orangered
 }
 form.create-note .accessories a.secondary{
-  background-color: aqua;
+  background-color: aquamarine;
 }
 form.create-note .accessories a.third{
   background-color: mediumseagreen;

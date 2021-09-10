@@ -12,6 +12,10 @@ function AddNoteArea(props){
     });
     const [isHidden, setIsHidden] = useState(true);
 
+    let noteStyle = {
+        backgroundColor: note.color
+    };
+
     function handleChange(event){
         const { name, value } = event.target; // get the input name and value entered
         setNote(prevNote => {
@@ -41,18 +45,19 @@ function AddNoteArea(props){
     */
     function handleColorClick(e){ 
         e.persist();
-        const color = e.target.id;
+        const color = e.target.id; // use the id value as the color name
 
         setNote(prevNote =>{
             return {
                 ...prevNote,
                 color : color
             }
-        })
+        });
+        noteStyle = color;
     }
     
     return(
-        <form className="create-note" onSubmit={e => e.preventDefault()}>
+        <form className="create-note" style={noteStyle} onSubmit={e => e.preventDefault()}>
         <input 
             id="inputTitle"
             name="title" 
@@ -70,15 +75,15 @@ function AddNoteArea(props){
             onClick={handleTextareaClick}
         />
         <div className="accessories">
-            <a id="primary" className="primary" onClick={(event) => {
+            <a id="orangered" className="primary" onClick={(event) => {
                 handleColorClick(event)
             }}>
             </a>
-            <a id="secondary" className="secondary" onClick={(event) => {
+            <a id="aquamarine" className="secondary" onClick={(event) => {
                 handleColorClick(event)
             }}>
             </a>
-            <a id="third" className="third" onClick={(event) => {
+            <a id="mediumseagreen" className="third" onClick={(event) => {
                 handleColorClick(event)
             }}>
             </a>
