@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
@@ -10,8 +10,11 @@ function AddNoteArea(props){
         color: "",
         dateAdded: ""
     };
+
     const [note, setNote] = useState( blankNote );
     const [isHidden, setIsHidden] = useState(true);
+
+    const titleInputRef = useRef(null);
 
     let noteStyle = {
         backgroundColor: note.color
@@ -37,7 +40,8 @@ function AddNoteArea(props){
             document.getElementsByClassName('MuiButtonBase-root MuiFab-root')[0].style.visibility = 'visible';
             setIsHidden(false); // show the title input
             e.target.rows = 3; // expand text input to 3 lines
-            // document.getElementById('inputTitle').focus = true; // focus the input title field elemnt
+            console.log(titleInputRef);
+            titleInputRef.current.autofocus = true; // does not work
         }
     }
 
@@ -66,6 +70,7 @@ function AddNoteArea(props){
             onChange={handleChange} 
             value={note.title}
             hidden={isHidden}
+            ref={titleInputRef}
         />
         <textarea 
             name="content" 
