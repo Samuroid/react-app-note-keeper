@@ -3,9 +3,9 @@ ReactJS App for keeping notes
 
 As part of Dr. Angela Yu Web Development 2021 Course, I coded this Note keeper app using HTML, CSS, JavaScript & React.JS.
 I have expanded on the original app to include some of my own development ideas such as:
-1. User can choose a colour of a note
+1. <strike> User can choose a colour of a note </strike>
 2. Notes can be prioritised as either high, medium or low
-3. Notes hold the date added
+3. <strike> Notes hold the date added </strike>
 
 <b>Future Development Ideas</b>
 
