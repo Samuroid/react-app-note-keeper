@@ -13,3 +13,4 @@ I have expanded on the original app to include some of my own development ideas 
 - Notes can have an 'alert time' or 'reminder me on date'
 - Notes can be categorised
 - Notes can be locked & password protected
+- Deployment environment with Firebase (done)
