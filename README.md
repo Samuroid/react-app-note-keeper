@@ -14,3 +14,7 @@ I have expanded on the original app to include some of my own development ideas 
 - Notes can be categorised
 - Notes can be locked & password protected
 - Deployment environment with Firebase (done)
+
+## Live Version
+
+View a live working version of the react app note keeper @ https://react-apps-4aff7.web.app/
