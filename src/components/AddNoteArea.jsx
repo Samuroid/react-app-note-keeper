@@ -41,6 +41,8 @@ function AddNoteArea(props){
             setIsHidden(false); // show the title input
             e.target.rows = 3; // expand text input to 3 lines
             console.log(titleInputRef);
+            document.getElementsByTagName('textarea')[0].autofocus = false;
+            document.getElementById('inputTitle').autofocus = true;
             titleInputRef.current.autofocus = true; // does not work
         }
     }
@@ -71,6 +73,7 @@ function AddNoteArea(props){
             value={note.title}
             hidden={isHidden}
             ref={titleInputRef}
+            autofocus
         />
         <textarea 
             name="content" 
